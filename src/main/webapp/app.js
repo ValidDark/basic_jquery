@@ -54,8 +54,43 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
+	function change(box) {
+		console.log("change has been called on " + box);
+		console.log("current value:  " + (0, _jquery2.default)(box).css("background-color"));
+		if ((0, _jquery2.default)(box).css("background-color") === 'rgb(255, 0, 0)') {
+			(0, _jquery2.default)(box).css("background-color", 'rgb(0, 255, 0)');
+		} else if ((0, _jquery2.default)(box).css("background-color") === 'rgb(0, 255, 0)') {
+			(0, _jquery2.default)(box).css("background-color", 'rgb(0, 0, 255)');
+		} else if ((0, _jquery2.default)(box).css("background-color") === 'rgb(0, 0, 255)') {
+			(0, _jquery2.default)(box).css("background-color", 'rgb(255, 0, 0)');
+		}
+	}
+	
 	(0, _jquery2.default)(document).ready(function () {
-	  (0, _jquery2.default)('h1').css('color', 'red');
+	
+		(0, _jquery2.default)('h1').css('color', 'red');
+	
+		(0, _jquery2.default)("#box1").css("background-color", 'rgb(255, 0, 0)');
+		(0, _jquery2.default)("#box2").css("background-color", 'rgb(0, 255, 0)');
+		(0, _jquery2.default)("#box3").css("background-color", 'rgb(0, 0, 255)');
+	
+		(0, _jquery2.default)("#b1").click(function () {
+			change("#box1");
+		});
+	
+		(0, _jquery2.default)("#b2").click(function () {
+			change("#box2");
+		});
+	
+		(0, _jquery2.default)("#b3").click(function () {
+			change("#box3");
+		});
+	
+		(0, _jquery2.default)("#b4").click(function () {
+			(0, _jquery2.default)("#box1").css("background-color", 'rgb(255, 0, 0)');
+			(0, _jquery2.default)("#box2").css("background-color", 'rgb(0, 255, 0)');
+			(0, _jquery2.default)("#box3").css("background-color", 'rgb(0, 0, 255)');
+		});
 	});
 
 /***/ },

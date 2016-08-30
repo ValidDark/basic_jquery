@@ -1,3 +1,61 @@
-.test {
-  background-color: black;
+.flexbox-container {
+	
+  padding: 0;
+  margin: 0;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;  
+  flex-flow: row wrap;
+  justify-content: space-around;
+  height: 100vh;
+  width: 100vw;
+  color: white;
+  text-shadow: 8px 8px 20px black;
+  font-family: "Comic Sans MS", cursive, sans-serif
+  
+}
+
+
+.flex-box {
+  width: 33%;
+  height: 85%;
+  font-weight: bold;
+  font-size: 8em;
+  text-align: center;
+
+}
+
+.flex-bottom {
+  width: 100%;
+  height: 10%;
+  font-weight: bold;
+  font-size: 3em;
+  text-align: center;
+  border-radius: 3px;
+  border: solid 2px;
+}
+
+.button {
+    background-color: black;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    padding: 8px 55px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.menu {
+    display: flex;
+    justify-content: space-around;
 }
