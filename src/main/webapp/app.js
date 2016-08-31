@@ -54,16 +54,33 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
+	var n = 5;
+	
 	function change(box) {
 		console.log("change has been called on " + box);
 		console.log("current value:  " + (0, _jquery2.default)(box).css("background-color"));
 		if ((0, _jquery2.default)(box).css("background-color") === 'rgb(255, 0, 0)') {
 			(0, _jquery2.default)(box).css("background-color", 'rgb(0, 255, 0)');
+			return true;
 		} else if ((0, _jquery2.default)(box).css("background-color") === 'rgb(0, 255, 0)') {
 			(0, _jquery2.default)(box).css("background-color", 'rgb(0, 0, 255)');
+			return true;
 		} else if ((0, _jquery2.default)(box).css("background-color") === 'rgb(0, 0, 255)') {
 			(0, _jquery2.default)(box).css("background-color", 'rgb(255, 0, 0)');
-		}
+			return true;
+		} else return false;
+	}
+	
+	function change2(rgb) {
+		(0, _jquery2.default)("#box4").css("background-color", rgb);
+		console.log("Trying to change to " + rgb);
+	}
+	
+	function makeColorGradient(frequency1, frequency2, frequency3) {
+		var red = (Math.sin(frequency1 / 10) + 1) * 100;
+		var grn = (Math.sin(frequency2 / 10) + 1) * 100;
+		var blu = (Math.sin(frequency3 / 10) + 1) * 100;
+		return 'rgb(' + Math.floor(red) + ', ' + Math.floor(grn) + ', ' + Math.floor(blu) + ')';
 	}
 	
 	(0, _jquery2.default)(document).ready(function () {
@@ -75,15 +92,24 @@
 		(0, _jquery2.default)("#box3").css("background-color", 'rgb(0, 0, 255)');
 	
 		(0, _jquery2.default)("#b1").click(function () {
-			change("#box1");
+			if (change("#box1")) {
+				n++;
+				change2(makeColorGradient(n, n + 10, n + 20));
+			}
 		});
 	
 		(0, _jquery2.default)("#b2").click(function () {
-			change("#box2");
+			if (change("#box2")) {
+				n++;
+				change2(makeColorGradient(n, n + 10, n + 20));
+			}
 		});
 	
 		(0, _jquery2.default)("#b3").click(function () {
-			change("#box3");
+			if (change("#box3")) {
+				n++;
+				change2(makeColorGradient(n, n + 10, n + 20));
+			}
 		});
 	
 		(0, _jquery2.default)("#b4").click(function () {
